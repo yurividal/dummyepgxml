@@ -5,10 +5,10 @@
 numberofchannels=2
 declare -a a0=("tvg-id-channel1" "Name Channel 1" "Program Tittle" "Creative Program Description")
 declare -a a1=("tvg-id-channel1" "Name Channel 1" "Program Tittle" "Creative Program Description")
-####### Other Variables
+
 starttimes=("000000" "060000" "120000" "180000")
 endtimes=("060000" "120000" "180000" "235900")
-BASEPATH="~"
+BASEPATH="/your/folder/path"
 DUMMYFILENAME=dummy.xml
 
 		today=$(date +%Y%m%d)
@@ -27,10 +27,10 @@ DUMMYFILENAME=dummy.xml
 			echo '    </channel>' >> $BASEPATH/$DUMMYFILENAME
 		done
 
-		for i in {0..2} ;do
+		for i in $(seq 0 $numberofiterations) ;do
 			tvgid=a$i[0]
-			title=a$i[0]
-			desc=a$i[1]
+			title=a$i[2]
+			desc=a$i[3]
 			for j in {0..3}; do
 					echo '    <programme start="'$today${starttimes[$j]}' +0000" stop="'$today${endtimes[$j]}' +0000" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <title lang="pt">'${!title}'</title>' >> $BASEPATH/$DUMMYFILENAME
