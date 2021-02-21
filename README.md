@@ -9,7 +9,7 @@
 ### How To Run:
 * Fix the variables as you like
 * go to the folder and execute the script ```./dummycreator.sh```
-* You can automatically run int, using a cron job. The example bellow runs it every day at midnight:
+* You can automatically run it using a cron job. The example bellow runs it every day at midnight:
 ```
 0 0 * * * /bin/bash /file/location/dummycreator.sh
 ```
